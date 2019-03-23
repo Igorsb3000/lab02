@@ -1,26 +1,37 @@
 #include "lab2.h"
 
 int main(){
-	
-	string nome;
-	int salario;
-	//string admissao;
-	int admissao[3];
+	funcionario R;
+	funcionario vetor[3];
+	string nome_main;
+	double salario_main;
+	int admissao_main[3];
 
 	cout << "Digite o nome do funcionario: " << endl;
 	//cin.ignore();
-	getline(cin, nome);
+	getline(cin, nome_main);
 
 	cout << "Digite o salario do funcionario: " << endl;
-	cin >> salario;
+	cin >> salario_main;
 
 	cout << "Digite a data de admissao do funcionario: ";
-	cin >> admissao[0] >> admissao[1] >> admissao[2];
+	cin >> admissao_main[0] >> admissao_main[1] >> admissao_main[2];
 
 	for(int i = 0; i<3; i++){
-		cout << admissao[i] << endl;
+		cout << admissao_main[i] << endl;
 	}
+	R.setNome(nome_main);
+	R.setSalario(salario_main);
+	R.setAdmissao(admissao_main);
+	
 
+	cout << "Funcionario R:" << endl;
+	cout << "Nome: " << R.getNome() << endl;
+	cout << "Salario: " << R.getSalario() << endl;
+	cout << "Dia: " << R.getAdmissao()[0] << endl;
+	cout << "Mes: " << R.getAdmissao()[1] << endl;
+	cout << "Ano: " << R.getAdmissao()[2] << endl;
+	
 
 	return 0;
 }

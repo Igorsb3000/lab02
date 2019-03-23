@@ -6,13 +6,18 @@
 using namespace std;
 
 
-class FUNCIONARIO{
+class funcionario{
 	private:
 		string nome;
 		double salario;
-		int admissao[3];
+		int *admissao;
 	public:
-		void setNome(string);
-		void setSalario(int);
-		void getAdmissao(int admissao[], int tamanho);
+		void setNome(string n);
+		void setSalario(double s);
+		void setAdmissao(int admissao[]);
+
+		string getNome();
+		double getSalario();
+		int* getAdmissao();
+
 };

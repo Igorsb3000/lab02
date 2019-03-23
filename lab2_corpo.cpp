@@ -5,9 +5,23 @@ void funcionario::setNome(string n){
 	nome = n;
 }
 
-void funcionario::setSalario(int s){
+void funcionario::setSalario(double s){
 	salario = s;
 }
 
-void funcionario::setAdmissao(int admissao[], int tamanho){
-	int 
+void funcionario::setAdmissao(int vetor[]){
+	admissao = vetor;
+}
+
+
+string funcionario::getNome(){
+	return nome;
+}
+double funcionario::getSalario(){
+	return salario;
+}
+
+int* funcionario::getAdmissao(){
+	return admissao;
+}
+
