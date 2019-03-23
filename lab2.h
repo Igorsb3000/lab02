@@ -1,18 +1,18 @@
 #include <iostream>
 #include <string>
+#include <cstring>
+
 
 using namespace std;
+
 
 class FUNCIONARIO{
 	private:
 		string nome;
-		int salario;
-		string admissao;
+		double salario;
+		int admissao[3];
 	public:
-		void setnome(string nome);
-		void setsalario(int salario);
-		void  setadmissao(string admissao);
-
-
-
-}
+		void setNome(string);
+		void setSalario(int);
+		void getAdmissao(int admissao[], int tamanho);
+};
