@@ -1,9 +1,12 @@
 #include <iostream>
 #include <string>
 #include <cstring>
+#include <list>
+
 
 
 using namespace std;
+
 
 
 class funcionario{
@@ -20,4 +23,18 @@ class funcionario{
 		double getSalario();
 		int* getAdmissao();
 
+};
+
+class empresa{
+	private:
+		string razao;
+		int cnpj;
+		list<funcionario>colaboradores;
+	public:
+		string getRazao();
+		void setRazao(string);
+		int getCnpj();
+		void setCnpj(int);
+		funcionario* getColaborador(string);
+		void setColaborador(funcionario);
 };
