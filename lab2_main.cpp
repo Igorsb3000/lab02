@@ -4,7 +4,6 @@ int main(){
 	funcionario R;
 	
 	//c)
-	empresa A;
 	string razao;
 	int cnpj;
 
@@ -21,19 +20,23 @@ int main(){
 	cout << "Mes: " << R.getAdmissao()[1] << endl;
 	cout << "Ano: " << R.getAdmissao()[2] << endl;
 	cout << endl << endl;
+
+	*/
 	cout << "Digite a razao social da empresa:" << endl;
 	cin >> razao; 
 	
-	A.setRazao(razao);
+	//A.setRazao(razao);
 	cout << "Digite o CNPJ da empresa:" << endl;
 	cin >>  cnpj;
-	A.setCnpj(cnpj);
+	//A.setCnpj(cnpj);
 	//A.setColaborador(R);	
-	cout << endl << endl; */
+	empresa A(razao,cnpj);
+
+	cout << endl << endl;
 
 
 
-	char resposta;
+	char resposta = 'n';
 	int contador=0;
 
 	//d)
@@ -47,6 +50,7 @@ int main(){
 			getline(cin, nome_main);
 
 			cout << "Digite o salario do funcionario: " << endl;
+			cin.ignore();
 			cin >> salario_main;
 
 			cout << "Digite a data de admissao do funcionario: ";
@@ -73,7 +77,7 @@ int main(){
 
 	if(A.getColaborador(nome_main) != nullptr){
 		cout << "Empresa: " << A.getRazao() << endl;
-		cout <<  "Funcionarios:" << endl << A.getColaborador(nome_main)->getNome() << endl;
+		cout <<  "Funcionario:" << endl << A.getColaborador(nome_main)->getNome() << endl;
 		cout << "Salario: " << A.getColaborador(nome_main)->getSalario() << endl;
 		cout << "Data de admissao:" << A.getColaborador(nome_main)->getAdmissao()[0] << "/" << A.getColaborador(nome_main)->getAdmissao()[1] << "/" << A.getColaborador(nome_main)->getAdmissao()[2] << endl;
 	}

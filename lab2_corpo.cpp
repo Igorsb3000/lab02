@@ -36,6 +36,17 @@ funcionario::funcionario(string n, double s, int *vetor){
 }
 
 //EMPRESA:
+
+empresa::empresa(){
+	cnpj = 0;
+	razao = "-";
+}
+
+empresa::empresa(string r, int c){
+	razao = r;
+	cnpj = c;
+}
+
 string empresa::getRazao(){
 	return razao;
 }

@@ -37,6 +37,9 @@ class empresa{
 		int cnpj;
 		list <funcionario> colaboradores;
 	public:
+		//Construtores
+		empresa();
+		empresa(string	r,int c);
 		//Métodos setters
 		void setRazao(string);
 		void setCnpj(int);
