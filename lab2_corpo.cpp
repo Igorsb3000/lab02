@@ -1,16 +1,16 @@
 #include "lab2.h"
 
-
+//FUNCIONARIO:
 void funcionario::setNome(string n){
-	nome = n;
+	this->nome = n;
 }
 
 void funcionario::setSalario(double s){
-	salario = s;
+	this->salario = s;
 }
 
 void funcionario::setAdmissao(int vetor[]){
-	admissao = vetor;
+	this->admissao = vetor;
 }
 
 
@@ -24,6 +24,18 @@ double funcionario::getSalario(){
 int* funcionario::getAdmissao(){
 	return admissao;
 }
+
+funcionario::funcionario(){
+
+}
+funcionario::funcionario(string n, double s, int *vetor){
+	nome = n;
+	salario = s;
+	admissao = vetor;
+
+}
+
+//EMPRESA:
 string empresa::getRazao(){
 	return razao;
 }
@@ -37,7 +49,7 @@ int empresa::getCnpj(){
 }
 
 void empresa::setCnpj(int c){
-	cnpj = c;
+	this->cnpj = c;
 }
 	
 funcionario* empresa::getColaborador(string nome){
@@ -52,6 +64,6 @@ funcionario* empresa::getColaborador(string nome){
 }
 
 void empresa::setColaborador(funcionario f){
-	colaboradores.push_back(f);
+	this->colaboradores.push_back(f);
 }
 
