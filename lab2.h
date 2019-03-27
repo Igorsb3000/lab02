@@ -35,7 +35,7 @@ class empresa{
 	private:
 		string razao;
 		int cnpj;
-		list <funcionario> colaboradores;
+		list<funcionario>colaboradores;
 	public:
 		//Construtores
 		empresa();
@@ -50,5 +50,8 @@ class empresa{
 		funcionario* getColaborador(string);
 		//Métodos de sobrecarga 
 		friend ostream& operator << (ostream &out, empresa &e);
+		friend istream& operator >> (istream &in, empresa &e);
+		//Método para desalocar memoria
+		
 		
 };
