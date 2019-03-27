@@ -48,5 +48,7 @@ class empresa{
 		string getRazao();
 		int getCnpj();
 		funcionario* getColaborador(string);
+		//Métodos de sobrecarga 
+		friend ostream& operator << (ostream &out, empresa &e);
 		
 };

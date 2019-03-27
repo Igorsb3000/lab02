@@ -50,7 +50,6 @@ int main(){
 			getline(cin, nome_main);
 
 			cout << "Digite o salario do funcionario: " << endl;
-			cin.ignore();
 			cin >> salario_main;
 
 			cout << "Digite a data de admissao do funcionario: ";
@@ -81,8 +80,11 @@ int main(){
 		cout << "Salario: " << A.getColaborador(nome_main)->getSalario() << endl;
 		cout << "Data de admissao:" << A.getColaborador(nome_main)->getAdmissao()[0] << "/" << A.getColaborador(nome_main)->getAdmissao()[1] << "/" << A.getColaborador(nome_main)->getAdmissao()[2] << endl;
 	}
+	cout << A;
 
 	delete[] admissao_main;
+
+
 	
 	return 0;
 }

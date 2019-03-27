@@ -78,3 +78,13 @@ void empresa::setColaborador(funcionario f){
 	this->colaboradores.push_back(f);
 }
 
+ostream& operator << (ostream &out, empresa &e){
+	for (auto it = e.colaboradores.begin(); it != e.colaboradores.end(); it++){
+		out << "Razao: " << e.razao << endl << "CNPJ: " << e.cnpj << endl << "Funcionario: " << endl << "nome do funcionario: " << 
+	(*it).getNome() << endl << "salario: " << (*it).getSalario() << endl << "data de admissao: " << (*it).getAdmissao()[0] << 
+	"/" << (*it).getAdmissao()[1] <<  "/" << (*it).getAdmissao()[2]  <<  endl;
+	}
+	
+	return out;
+}
+
