@@ -2,7 +2,7 @@
 #include <string>
 #include <cstring>
 #include <list>
-//#include <vector>
+#include <vector>
 //#include <algorithm>
 
 
@@ -13,18 +13,21 @@ using namespace std;
 //a)
 class funcionario{
 	private:
+		long double cpf;
 		string nome;
 		double salario;
 		int *admissao;
 	public:
 		//Costrutores
 		funcionario();
-		funcionario(string nome, double salario, int *admissao);
+		funcionario(long double cpf, string nome, double salario, int *admissao);
 		//Métodos setters
+		void setCpf(long double cpf);
 		void setNome(string n);
 		void setSalario(double s);
 		void setAdmissao(int admissao[]);
 		//Métodos getters
+		long double getCpf();
 		string getNome();
 		double getSalario();
 		int* getAdmissao();
@@ -39,7 +42,7 @@ class empresa{
 	public:
 		//Construtores
 		empresa();
-		empresa(string	r,int c);
+		empresa(string	r, int c);
 		//Métodos setters
 		void setRazao(string);
 		void setCnpj(int);

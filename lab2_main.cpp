@@ -7,68 +7,83 @@ int main(){
 	string razao;
 	int cnpj;
 
-	/*
-	string nome_main;
-	double salario_main;
-	int *admissao_main = new int[3];
+
+
+	//Vetor de empresas
+	vector<empresa>Empresas;
+	
+	char resposta;
+	int numero_empresas;
+	int i=0;
 
 	
-	cout << "Funcionario R:" << endl;
-	cout << "Nome: " << R.getNome() << endl;
-	cout << "Salario: " << R.getSalario() << endl;
-	cout << "Dia: " << R.getAdmissao()[0] << endl;
-	cout << "Mes: " << R.getAdmissao()[1] << endl;
-	cout << "Ano: " << R.getAdmissao()[2] << endl;
-	cout << endl << endl;
-
-	*/
-	cout << "Digite a razao social da empresa:" << endl;
-	cin >> razao; 
-	
-	//A.setRazao(razao);
-	cout << "Digite o CNPJ da empresa:" << endl;
-	cin >>  cnpj;
-	//A.setCnpj(cnpj);
-	//A.setColaborador(R);	
-	empresa A(razao,cnpj);
-
-	cout << endl << endl;
-
-
-
-	char resposta = 'n';
-	int contador=0;
-
-	//d)
 	do{
-		cout << "Deseja adicionar um novo funcinário ? s/n" << endl;
-		cin.ignore();
+		cout << "Deseja criar uma empresa ? s/n " << endl;
 		cin >> resposta;
 
 		if(resposta != 'n'){
-			/*cout << "Digite o nome do funcionario: " << endl;
-			cin.ignore();
-			getline(cin, nome_main);
+			cout << "Digite a razao social da empresa:" << endl;
+			cin >> razao; 
+			
+			cout << "Digite o CNPJ da empresa:" << endl;
+			cin >>  cnpj;
 
-			cout << "Digite o salario do funcionario: " << endl;
-			cin >> salario_main;
+			Empresas.push_back(empresa(razao, cnpj));
 
-			cout << "Digite a data de admissao do funcionario: ";
-			cin >> admissao_main[0] >> admissao_main[1] >> admissao_main[2];
-
-			funcionario R(nome_main, salario_main, admissao_main);*/
-
-			cin >> A;
-			contador++;
-
+			i++;
+			cout << "Empresa cadastrada!" << endl;
 		}
 
-
+		
+		
 	}while(resposta != 'n');
 
-	//for(int i=0; i<A->colaboradores.size(); i++){
-	//	cout << A.colaboradores.front() << endl;
-	//}
+
+	//Empresas.push_back(empresa("sadia", 12344));
+	cout << endl << endl;
+
+
+	long double cpf;
+	vector<long double>lista_CPF;
+	int ok = 1;
+	int contador = 0;
+	//d)
+	do{
+		cout << "Deseja adicionar um novo funcinário ? s/n" << endl;
+		//cin.ignore();
+		cin >> resposta;
+
+		if(resposta != 'n'){
+			cout << "Digite o CPF para verificação: " << endl;
+			cin >> cpf;
+			if(contador == 0){
+				lista_CPF.push_back(cpf);
+				contador++;
+			}else{
+				for(int i=0; i< (int)lista_CPF.size(); i++){
+					if(cpf != lista_CPF[i]){
+						lista_CPF.push_back(cpf);
+						cout << lista_CPF[i] << endl;
+						cout << "CPF válido!" << endl;
+						ok = 1;
+						break;
+
+					}else{
+						cout << "CPF inválido, funcionário já cadastrado!" << endl;
+						ok = 0;
+						break;
+						
+					}
+				}
+			}
+			
+			if(ok == 1){
+				cin >> Empresas[i-1];
+			}
+			
+		}
+
+	}while(resposta != 'n');
 
 	
 
@@ -80,13 +95,16 @@ int main(){
 		cout <<  "Funcionario:" << endl << A.getColaborador(nome_main)->getNome() << endl;
 		cout << "Salario: " << A.getColaborador(nome_main)->getSalario() << endl;
 		cout << "Data de admissao:" << A.getColaborador(nome_main)->getAdmissao()[0] << "/" << A.getColaborador(nome_main)->getAdmissao()[1] << "/" << A.getColaborador(nome_main)->getAdmissao()[2] << endl;
-	}*/
-	cout << A;
+	} */
+	
 
-	//delete[] admissao_main;
-	/*for(auto it = A.colaboradores.begin(); it != A.colaboradores.end(); it++){
-		delete [] (*it).admissao;
-	}*/
+	//cout << A; //TESTE
+
+	//Imprimindo todas as empresas e seus funcionários
+	for(int i=0; i< (int)Empresas.size(); i++){
+		cout << Empresas[i] << endl;
+
+	} 
 	
 	return 0;
 }

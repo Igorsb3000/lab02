@@ -5,6 +5,10 @@ void funcionario::setNome(string n){
 	this->nome = n;
 }
 
+void funcionario::setCpf(long double cpf){
+	this->cpf = cpf;
+}
+
 void funcionario::setSalario(double s){
 	this->salario = s;
 }
@@ -17,6 +21,10 @@ void funcionario::setAdmissao(int vetor[]){
 string funcionario::getNome(){
 	return nome;
 }
+
+long double funcionario::getCpf(){
+	return cpf;
+}
 double funcionario::getSalario(){
 	return salario;
 }
@@ -26,9 +34,15 @@ int* funcionario::getAdmissao(){
 }
 
 funcionario::funcionario(){
+	cpf = 00000000000;
+	nome = "Desconhecido";
+	salario = 000.00;
+	//admissao = vetor;
+
 
 }
-funcionario::funcionario(string n, double s, int *vetor){
+funcionario::funcionario(long double c, string n, double s, int *vetor){
+	cpf = c;
 	nome = n;
 	salario = s;
 	admissao = vetor;
@@ -79,11 +93,13 @@ void empresa::setColaborador(funcionario f){
 }
 
 ostream& operator << (ostream &out, empresa &e){
-	out << "Razao: " << e.razao << endl << "CNPJ: " << e.cnpj << endl;
+	cout << endl;
+	cout << "***Empresa " << e.razao << "***" << endl;
+	out << "Razao: " << e.razao << endl << "CNPJ: " << e.cnpj << endl << endl;
+	out << "***Lista de Funcionarios***" << endl;
 	for (auto it = e.colaboradores.begin(); it != e.colaboradores.end(); it++){
-		out << "Funcionario: " << endl << "nome do funcionario: " << 
-	(*it).getNome() << endl << "salario: " << (*it).getSalario() << endl << "data de admissao: " << (*it).getAdmissao()[0] << 
-	"/" << (*it).getAdmissao()[1] <<  "/" << (*it).getAdmissao()[2]  <<  endl;
+		 out << "Nome: " << (*it).getNome() << endl << "CPF: " << (*it).getCpf() << endl << "Salario: R$ " << (*it).getSalario() << endl << "Admissao: " << (*it).getAdmissao()[0] << 
+	"/" << (*it).getAdmissao()[1] <<  "/" << (*it).getAdmissao()[2]  <<  endl << endl;;
 	}
 	
 	return out;
@@ -93,19 +109,24 @@ istream& operator >> (istream &in, empresa &e){
 	char existe = 'n';
 	string nome;
 	cout << "Digite o nome do funcionario: " << endl;
-	in >> nome;
+	in >> nome;/*
 	for(auto it = e.colaboradores.begin(); it != e.colaboradores.end(); it++){
 		if((nome.compare((*it).getNome())) == 0){
 			cout << "Funcionario já cadastrado!!" << endl;
 			existe ='s';
 			break;
 		}
-	}
+	}*/
 	if(existe == 'n'){
 		funcionario R;
+		long double cpf;
 		double salario;
 		int *admissao = new int[3];
+
 		R.setNome(nome);
+		cout << "Digite o cpf: " <<  endl;
+		in >> cpf;
+		R.setCpf(cpf);
 		cout << "Digite o salario: " << endl;
 		in >> salario;
 		R.setSalario(salario);
