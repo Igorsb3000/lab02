@@ -1,4 +1,4 @@
-#include "lab2.h"
+#include "lab2_teste.h"
 
 //FUNCIONARIO:
 void funcionario::setNome(string n){

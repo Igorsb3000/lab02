@@ -1,4 +1,4 @@
-#include "lab2.h"
+#include "lab2_teste.h"
 
 
 void cadastrar_emp(vector<empresa> &lista){
@@ -68,25 +68,32 @@ void cadastrar_func(vector<empresa> &lista){
 		cin >> cpf;
 		cout << endl;
 		for(i=0 ;i < (int)lista.size(); i++){
-			cout << "chegou 1" << endl;
+			//cout << "chegou 1" << endl;
 			for(auto it = lista[i].getListColab().begin(); it != lista[i].getListColab().end(); it++){
-				cout << "chegou 2" << endl;
+				//cout << "chegou 2" << endl;
 				if((int)lista[i].getListColab().size() == 0){
+					break; 
+					//Primeiro cadastrado
+				}
+				else if((*it).getCpf() == cpf){
+					existe = 's';//flag
+					//Já existe
 					break;
 				}
-				if((*it).getCpf() == cpf){
-					existe = 's';//flag
+				else{
+					existe = 'n'; //ACHO QUE ERRO ERA AQUI!!
 					break;
 				}
 			}
+			
 			if(existe == 's'){
-				cout << "CPF ja cadastrado na empresa " << lista[i].getRazao() << "!! Tente novamente." << endl;
+				cout << "CPF ja cadastrado na empresa " << lista[i].getRazao() << "!! Tente novamente." << endl << endl;
 				break;
 			}
 		}
 
 		if(existe != 's'){
-			cout << "chegou 3" << endl;
+			//cout << "chegou 3" << endl;
 			cout << "Digite o nome do funcionario: ";
 			cin >> nome;
 			cout << endl;
@@ -100,4 +107,67 @@ void cadastrar_func(vector<empresa> &lista){
 		}
 	}
 }
+/*
+void aumento_salario(vector<empresa> &lista){
+	int aumento, i;
+	int cnpj = 0;
+	
+	cout << "Digite o CNPJ da empresa: ";
+	cin >> cnpj;
+	cout << endl;
+
+	//verifica se a empresa existe.
+	for(i = 0; i < (int)lista.size(); i ++){
+		if(lista[i].getCnpj() == cnpj){
+			cout << "Empresa encontrada!!" << endl;
+			existe_empresa = 's';
+			posicao = i;
+			break;
+		}
+	}
+	if(existe_empresa != 's'){
+		cout << "Empresa nao encontrada!!Tente novamente." << endl;
+	}
+	else{
+		existe = 'n';
+		cout << "Digite X% o aumento que dará aos funcionários: " << endl;
+		cin >> aumento;
+		
+
+		//PAREI AQUI!!!!!!!!!!!!
+		for(i=0 ;i < (int)lista.size(); i++){
+			
+			for(auto it = lista[i].getListColab().begin(); it != lista[i].getListColab().end(); it++){
+			
+				if((int)lista[i].getListColab().size() == 0){
+					break; 
+					//Primeiro cadastrado
+				}
+				else if((*it).getCpf() == cpf){
+					existe = 's';
+				
+					break;
+				}
+				else{
+					existe = 'n';
+					break;
+				}
+			}
+			
+			if(existe == 's'){
+				cout << "CPF ja cadastrado na empresa " << lista[i].getRazao() << "!! Tente novamente." << endl << endl;
+				break;
+			}
+		}
+		
+
+
+
+
+
+
+	}
+
+}
+*/
 

@@ -1,4 +1,4 @@
-#include "lab2.h"
+#include "lab2_teste.h"
 
 
 int main(){
@@ -17,7 +17,7 @@ int main(){
 	}while(continuar!='n');
 
 	while(opcao != 0){
-		cout << "Qual operacao deseja executar: "<< endl << "1 - cadastrar empresa" << endl << "2 - cadastrar funcionario" << endl;
+		cout << "Qual operacao deseja executar: "<< endl << "0 - Sair" << endl << "1 - Cadastrar Empresa" << endl << "2 - Cadastrar Funcionario" << endl << "3 - Aumento de salário" << endl;
 		cin.ignore();
 		cin >> opcao;
 		
@@ -28,6 +28,8 @@ int main(){
 			case 2:
 				cadastrar_func(lista_empresas);
 				break;
+			case 3:
+				//aumento_salario(lista_empresas);
 			default:
 				opcao = 0;
 				cout << "Programa finalizado!!" << endl;
