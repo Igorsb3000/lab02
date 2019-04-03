@@ -17,7 +17,8 @@ int main(){
 	}while(continuar!='n');
 
 	while(opcao != 0){
-		cout << "Qual operacao deseja executar: "<< endl << "0 - Sair" << endl << "1 - Cadastrar Empresa" << endl << "2 - Cadastrar Funcionario" << endl << "3 - Aumento de salário" << endl;
+		cout << "Qual operacao deseja executar: "<< endl << "0 - Sair" << endl << "1 - Cadastrar Empresa" << endl << "2 - Cadastrar Funcionario" << endl << 
+		"3 - Aumento de salário" << "4 - Verificar a media de funcionarios" << "5 - Listar os funcionarios de uma empresa" << endl;
 		cin.ignore();
 		cin >> opcao;
 		
@@ -29,7 +30,7 @@ int main(){
 				cadastrar_func(lista_empresas);
 				break;
 			case 3:
-				//aumento_salario(lista_empresas);
+				aumento_salario(lista_empresas);
 			default:
 				opcao = 0;
 				cout << "Programa finalizado!!" << endl;

@@ -9,6 +9,7 @@ void cadastrar_emp(vector<empresa> &lista){
 		sucesso = 's';
 		cout << "Digite o CNPJ da empresa: ";
 		cin >> cnpj;
+		cout << endl;
 		if((int)lista.size() == 0){
 			cout << "Digite a razao social da empresa: ";
 			cin >> razao;
@@ -107,10 +108,16 @@ void cadastrar_func(vector<empresa> &lista){
 		}
 	}
 }
-/*
+
 void aumento_salario(vector<empresa> &lista){
-	int aumento, i;
+	float aumento;//aumento pode ser um decimal.
+	int i, posicao;
 	int cnpj = 0;
+	double a_salario = 0;//antigo salario.
+	double n_salario = 0; //novo salario.
+
+	char existe_empresa = 'n';//faltou declarar as variaveis.
+	//char existe_funcionario;//criei essa existe_funcionario no lugar da existe pra n ficar confuso.
 	
 	cout << "Digite o CNPJ da empresa: ";
 	cin >> cnpj;
@@ -129,45 +136,32 @@ void aumento_salario(vector<empresa> &lista){
 		cout << "Empresa nao encontrada!!Tente novamente." << endl;
 	}
 	else{
-		existe = 'n';
-		cout << "Digite X% o aumento que dará aos funcionários: " << endl;
+		//existe_funcionario = 'n';
+		cout << "Digite X% o aumento que dará aos funcionários: ";
 		cin >> aumento;
+		cout << endl;
 		
 
 		//PAREI AQUI!!!!!!!!!!!!
-		for(i=0 ;i < (int)lista.size(); i++){
-			
-			for(auto it = lista[i].getListColab().begin(); it != lista[i].getListColab().end(); it++){
-			
-				if((int)lista[i].getListColab().size() == 0){
-					break; 
-					//Primeiro cadastrado
-				}
-				else if((*it).getCpf() == cpf){
-					existe = 's';
-				
-					break;
-				}
-				else{
-					existe = 'n';
-					break;
-				}
+		for(auto it = lista[posicao].getListColab().begin(); it != lista[posicao].getListColab().end(); it++){
+			if((int)lista[posicao].getListColab().size() == 0){
+				break; 
+				//Primeiro cadastrado
 			}
-			
-			if(existe == 's'){
-				cout << "CPF ja cadastrado na empresa " << lista[i].getRazao() << "!! Tente novamente." << endl << endl;
-				break;
+			else{
+				a_salario = (*it).getSalario();
+				cout << "antigo salario = " << a_salario << endl;
+				n_salario =  a_salario + (aumento * a_salario)/100;
+				cout << "novo salario = " << n_salario << endl;
+				(*it).setSalario(n_salario);
+				cout << "salario do funcionario: " << (*it).getSalario() << endl;
+				//existe_funcionario = 'n';
 			}
-		}
-		
+		}	
 
-
-
-
-
-
+		cout << "Aumento realizado com sucesso!!" << endl;
 	}
 
 }
-*/
+
 

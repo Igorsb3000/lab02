@@ -63,3 +63,4 @@ class empresa{
 
 void cadastrar_emp(vector<empresa> &lista);
 void cadastrar_func(vector<empresa> &lista);
+void aumento_salario(vector<empresa> &lista);
