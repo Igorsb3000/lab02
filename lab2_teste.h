@@ -32,6 +32,9 @@ class funcionario{
 		double getSalario();
 		int* getAdmissao();
 
+		static int contador_func;
+		static int getContador_func();
+
 
 };
 //b)
@@ -48,6 +51,7 @@ class empresa{
 		void setRazao(string);
 		void setCnpj(int);
 		void setColaborador(funcionario);
+		void setColaborador2(funcionario f);
 		//Métodos getters
 		string getRazao();
 		int getCnpj();
@@ -57,6 +61,9 @@ class empresa{
 		friend ostream& operator << (ostream &out, empresa &e);
 		//friend istream& operator >> (istream &in, empresa &e);
 		//Método para desalocar memoria
+
+		static int contador_empre;
+		static int getContador_empre();
 		
 		
 };

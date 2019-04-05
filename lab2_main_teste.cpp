@@ -1,5 +1,7 @@
 #include "lab2_teste.h"
 
+int funcionario::contador_func = 0;
+int empresa::contador_empre = 0; 
 
 int main(){
 	vector<empresa>lista_empresas;
@@ -25,9 +27,11 @@ int main(){
 		switch (opcao){
 			case 1:
 				cadastrar_emp(lista_empresas);
+				contador_empre++;
 				break;
 			case 2:
 				cadastrar_func(lista_empresas);
+				contador_func++;
 				break;
 			case 3:
 				aumento_salario(lista_empresas);

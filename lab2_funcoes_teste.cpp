@@ -1,6 +1,7 @@
 #include "lab2_teste.h"
 
 
+
 void cadastrar_emp(vector<empresa> &lista){
 	char sucesso;
 	int cnpj;
@@ -37,13 +38,13 @@ void cadastrar_emp(vector<empresa> &lista){
 }
 
 void cadastrar_func(vector<empresa> &lista){
-	int cpf = 0;
-	int cnpj = 0;
-	int posicao = 0;
+	int cpf;
+	int cnpj;
+	int posicao;
 	int i;
 	string nome;
-	int admissao[] = {0,0,0};
-	double salario = 0.0;
+	int admissao[3];
+	double salario;
 	char existe = 'n';
 	char existe_empresa = 'n';
 	cout << "Digite o CNPJ da empresa: ";
@@ -142,19 +143,64 @@ void aumento_salario(vector<empresa> &lista){
 		cout << endl;
 		
 
-		//PAREI AQUI!!!!!!!!!!!!
 		for(auto it = lista[posicao].getListColab().begin(); it != lista[posicao].getListColab().end(); it++){
 			if((int)lista[posicao].getListColab().size() == 0){
 				break; 
-				//Primeiro cadastrado
 			}
-			else{
-				a_salario = (*it).getSalario();
+			else{ 
+
+				//lista[posicao].getListColab().remove_if(it);
+				//lista[posicao].erase(*it);
+				cout << lista[0] << endl;
+
+
+
+				//cout << "passou 2" << endl;
+				a_salario = (*it).getSalario(); // lista.getSalario();
 				cout << "antigo salario = " << a_salario << endl;
 				n_salario =  a_salario + (aumento * a_salario)/100;
 				cout << "novo salario = " << n_salario << endl;
+
+
 				(*it).setSalario(n_salario);
+
+				cout << (*it).getCpf() << endl;
+				cout << (*it).getNome()<< endl;
+				cout << (*it).getSalario() << endl;
+				cout << (*it).getAdmissao()[0] << endl;
+				cout << (*it).getAdmissao()[1] << endl;
+				cout << (*it).getAdmissao()[2] << endl;
+
+
+				long double cpf;
+				string nome;
+				double salario;
+				int admissao[3];
+			
+				nome = (*it).getNome();
+				salario = (*it).getSalario();
+				cpf = (*it).getCpf();
+				admissao[0] = (*it).getAdmissao()[0];
+				admissao[1] = (*it).getAdmissao()[1];
+				admissao[2] = (*it).getAdmissao()[2];
+
+				//it = lista[posicao].getListColab().[posicao];
+				//it.erase(*it);
+
+				//FALTA TERMINAR DE EXCLUIR O FUCNIONARIO
+				//lista[posicao].colaboradores(posicao).erase(it);
+
+
+				//ADICIONA-LO NOVAMENTE COM O SALARIO ATUALIZADO
+				funcionario f(cpf,nome,salario,admissao);
+				//lista[posicao].colaboradores = f;
+				//lista[posicao].setColaborador2(f);//teste precisa mudar.
+
+				cout << "Salario novo lista: " << (*it).getSalario() << endl;
+				cout << "Pasei 2" << endl;
 				cout << "salario do funcionario: " << (*it).getSalario() << endl;
+				break;
+				//lista.getListColab(++);
 				//existe_funcionario = 'n';
 			}
 		}	

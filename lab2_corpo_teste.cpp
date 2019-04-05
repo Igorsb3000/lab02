@@ -99,10 +99,15 @@ void empresa::setColaborador(funcionario f){
 	this->colaboradores.push_back(f);
 }
 
+void empresa::setColaborador2(funcionario f){
+	this->colaboradores.push_front(f);
+}
+
 ostream& operator << (ostream &out, empresa &e){
 	cout << endl;
 	cout << "***Empresa " << e.razao << "***" << endl;
 	out << "Razao: " << e.razao << endl << "CNPJ: " << e.cnpj << endl << endl;
+
 	out << "***Lista de Funcionarios***" << endl;
 	for (auto it = e.colaboradores.begin(); it != e.colaboradores.end(); it++){
 		 out << "Nome: " << (*it).getNome() << endl << "CPF: " << (*it).getCpf() << endl << "Salario: R$ " << (*it).getSalario() << endl << "Admissao: " << (*it).getAdmissao()[0] << 
@@ -112,11 +117,20 @@ ostream& operator << (ostream &out, empresa &e){
 	return out;
 }
 
+int funcionario::getContador_func(){
+	return contador_func;
+}
+int empresa::getContador_empre(){
+	return contador_empre;
+}
+
+
 /*istream& operator >> (istream &in, empresa &e){
 	char existe = 'n';
 	string nome;
 	cout << "Digite o nome do funcionario: " << endl;
 	in >> nome;
+
 	for(auto it = e.colaboradores.begin(); it != e.colaboradores.end(); it++){
 		if((nome.compare((*it).getNome())) == 0){
 			cout << "Funcionario já cadastrado!!" << endl;
