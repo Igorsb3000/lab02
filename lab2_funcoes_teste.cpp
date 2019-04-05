@@ -1,7 +1,5 @@
 #include "lab2_teste.h"
 
-
-
 void cadastrar_emp(vector<empresa> &lista){
 	char sucesso;
 	int cnpj;

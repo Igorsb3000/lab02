@@ -20,18 +20,16 @@ int main(){
 
 	while(opcao != 0){
 		cout << "Qual operacao deseja executar: "<< endl << "0 - Sair" << endl << "1 - Cadastrar Empresa" << endl << "2 - Cadastrar Funcionario" << endl << 
-		"3 - Aumento de salário" << "4 - Verificar a media de funcionarios" << "5 - Listar os funcionarios de uma empresa" << endl;
+		"3 - Aumento de salário" << endl << "4 - Verificar a media de funcionarios" << endl << "5 - Listar os funcionarios de uma empresa" << endl;
 		cin.ignore();
 		cin >> opcao;
 		
 		switch (opcao){
 			case 1:
 				cadastrar_emp(lista_empresas);
-				contador_empre++;
 				break;
 			case 2:
 				cadastrar_func(lista_empresas);
-				contador_func++;
 				break;
 			case 3:
 				aumento_salario(lista_empresas);
@@ -44,5 +42,8 @@ int main(){
 	for(int i=0; i < (int)lista_empresas.size(); i++){
 		cout << lista_empresas[i];
 	}
+
+	cout << "Quantidade de empresas: " << empresa::getContador_empre() << endl;
+	cout << "Quantidade de funcionarios: " << funcionario::getContador_func() << endl;
 	return 0;
 }

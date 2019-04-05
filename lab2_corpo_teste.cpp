@@ -39,6 +39,7 @@ funcionario::funcionario(){
 	cpf = 00000000000;
 	nome = "Desconhecido";
 	salario = 000.00;
+	contador_func++;
 	//admissao = vetor;
 
 
@@ -50,6 +51,7 @@ funcionario::funcionario(int c, string n, double s, int *data){
 	for(int i=0; i < 3; i++){
 		admissao[i] = data[i];
 	}
+	contador_func++;
 }
 
 //EMPRESA:
@@ -57,11 +59,13 @@ funcionario::funcionario(int c, string n, double s, int *data){
 empresa::empresa(){
 	cnpj = 0;
 	razao = "-";
+	contador_empre++;
 }
 
 empresa::empresa(string r, int c){
 	razao = r;
 	cnpj = c;
+	contador_empre++;
 }
 
 string empresa::getRazao(){
