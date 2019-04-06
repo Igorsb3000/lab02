@@ -1,24 +1,9 @@
 #include "lab2_teste.h"
 
 //FUNCIONARIO:
-void funcionario::setNome(string n){
-	this->nome = n;
-}
-
-void funcionario::setCpf(int cpf){
-	this->cpf = cpf;
-}
-
 void funcionario::setSalario(double s){
 	this->salario = s;
 }
-
-void funcionario::setAdmissao(int vetor[3]){
-	for(int i=0; i < 3; i++){
-		admissao[i] = vetor[i];
-	}
-}
-
 
 string funcionario::getNome(){
 	return nome;
@@ -40,10 +25,8 @@ funcionario::funcionario(){
 	nome = "Desconhecido";
 	salario = 000.00;
 	contador_func++;
-	//admissao = vetor;
-
-
 }
+
 funcionario::funcionario(int c, string n, double s, int *data){
 	cpf = c;
 	nome = n;
@@ -59,7 +42,6 @@ int funcionario::getContador_func(){
 }
 
 //EMPRESA:
-
 empresa::empresa(){
 	cnpj = 0;
 	razao = "-";
@@ -76,39 +58,16 @@ string empresa::getRazao(){
 	return razao;
 }
 
-void empresa::setRazao(string r){
-	razao = r;
-}
-
 int empresa::getCnpj(){
 	return cnpj;
 }
 
-void empresa::setCnpj(int c){
-	this->cnpj = c;
-}
-	
-funcionario* empresa::getColaborador(string nome){
-	list<funcionario>::iterator it;
-	for(it = colaboradores.begin(); it != colaboradores.end(); it++){
-		if ((*it).getNome() == nome){
-			return &(*it);
-		}
-	} 
-	cout << "Nao existe cadastro desse funcionario na empresa!!" << endl;
-	return nullptr;
-}
-
-list<funcionario> empresa::getListColab(){
+list<funcionario> & empresa::getListColab(){
 	return colaboradores;
 }
 
 void empresa::setColaborador(funcionario f){
 	this->colaboradores.push_back(f);
-}
-
-void empresa::setColaborador2(funcionario f){
-	this->colaboradores.push_front(f);
 }
 
 ostream& operator << (ostream &out, empresa &e){
@@ -128,39 +87,3 @@ ostream& operator << (ostream &out, empresa &e){
 int empresa::getContador_empre(){
 	return contador_empre;
 }
-
-
-
-/*istream& operator >> (istream &in, empresa &e){
-	char existe = 'n';
-	string nome;
-	cout << "Digite o nome do funcionario: " << endl;
-	in >> nome;
-
-	for(auto it = e.colaboradores.begin(); it != e.colaboradores.end(); it++){
-		if((nome.compare((*it).getNome())) == 0){
-			cout << "Funcionario já cadastrado!!" << endl;
-			existe ='s';
-			break;
-		}
-	}
-	if(existe == 'n'){
-		funcionario R;
-		long double cpf;
-		double salario;
-		int admissao[3];
-
-		R.setNome(nome);
-		R.setCpf(cpf);
-		cout << "Digite o salario: " << endl;
-		in >> salario;
-		R.setSalario(salario);
-		cout << "Digite a data de admissao: " << endl;
-		in >> admissao[0] >> admissao[1] >> admissao[2];
-		R.setAdmissao(admissao);
-		e.setColaborador(R);
-		//(*it).colaboradores.setNome(in.nome) >> (*it).colaboradores.setSalario(in.salario) >> (*it).colaboradores.setAdmissao(in.admissao);
-	}
-	return in;
-}*/
-
