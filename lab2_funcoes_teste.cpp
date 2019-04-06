@@ -170,3 +170,26 @@ float calcMedia(){
 	return media;
 }
 
+void listarFunc(vector<empresa> &lista){
+	int i, posicao, cnpj;
+	char existe_empresa = 'n';
+	cout << "Digite o CNPJ da empresa: ";
+	cin >> cnpj;
+	cout << endl;
+
+	//verifica se a empresa existe.
+	for(i = 0; i < (int)lista.size(); i ++){
+		if(lista[i].getCnpj() == cnpj){
+			cout << "Empresa encontrada!!" << endl;
+			existe_empresa = 's';
+			posicao = i;
+			break;
+		}
+	}
+	if(existe_empresa != 's'){
+		cout << "Empresa nao encontrada!!Tente novamente." << endl;
+	}
+	else{
+		cout << lista[posicao];
+	}
+}

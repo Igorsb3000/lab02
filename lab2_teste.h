@@ -64,3 +64,4 @@ void cadastrar_emp(vector<empresa> &lista);
 void cadastrar_func(vector<empresa> &lista);
 void aumento_salario(vector<empresa> &lista);
 float calcMedia();
+void listarFunc(vector<empresa> &lista);

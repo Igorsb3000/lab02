@@ -4,7 +4,6 @@ int funcionario::contador_func = 0;
 int empresa::contador_empre = 0; 
 
 int main(){
-	int data_atual[3] = {05,04,2019};
 	vector<empresa>lista_empresas;
 	char continuar = 'n';
 	int opcao = 1;
@@ -22,7 +21,7 @@ int main(){
 
 	while(opcao != 0){
 		cout << endl << "Qual operacao deseja executar: "<< endl << "0 - Sair" << endl << "1 - Cadastrar Empresa" << endl << "2 - Cadastrar Funcionario" << endl << 
-		"3 - Aumento de salário" << endl << "4 - Verificar a media de funcionarios" << endl << "5 - Listar os funcionarios de uma empresa sob contrato de experiencia" << endl;
+		"3 - Aumento de salário" << endl << "4 - Verificar a media de funcionarios" << endl << "5 - Listar os funcionarios" << endl;
 		cin.ignore();
 		cin >> opcao;
 		
@@ -41,7 +40,7 @@ int main(){
 				cout << "Media: " << media << endl;
 				break;
 			case 5:
-				//listarFunc(list<empresa> &lista_empresas);
+				listarFunc(lista_empresas);
 				break;
 			default:
 				opcao = 0;
