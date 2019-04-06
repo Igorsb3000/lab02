@@ -223,6 +223,7 @@ float calcMedia(){
 void testarContrato(vector<empresa> &lista, int data[3]){
 	int cnpj,posicao;
 	int meses,dias, anos, total_dias;
+	int dia_f,mes_f,ano_f;
 	char existe_empresa = 'n';//faltou declarar as variaveis.
 	//char existe_funcionario;//criei essa existe_funcionario no lugar da existe pra n ficar confuso.
 	
@@ -248,14 +249,26 @@ void testarContrato(vector<empresa> &lista, int data[3]){
 		}
 		else{
 			for(auto it = lista[posicao].getListColab().begin(); it != lista[posicao].getListColab().end(); it++){
-				dia = (*it).getAdmissao()[0];
-				mes =  (*it).getAdmissao()[1];
-				ano = (*it).getAdmissao()[2];
+				dia_f = (*it).getAdmissao()[0];
+				mes_f =  (*it).getAdmissao()[1];
+				ano_f = (*it).getAdmissao()[2];
 				
-				if(data[0] >= dia){
-					dias = data[0] - dia;
+				if(data[0] >= dia_f){
+					dias = data[0] - dia_f;
 				}else{
-					dias = dia - data[0];
+					dias = dia_f - data[0];
+				}
+				if(data[1] >= mes_f){
+					meses = data[1] - mes_f;
+				}
+				else{
+					meses = mes_f - data[1];
+				}
+				if(data[2] >= ano_f){
+					anos = data[2] - ano_f;
+				}
+				else{
+					anos = ano_f - data[2];
 				}
 	}
 }
