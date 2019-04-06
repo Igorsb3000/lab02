@@ -198,15 +198,19 @@ void periodo_experiencia(vector<empresa> &lista){
 	int cnpj;
 	char existe_empresa = 'n';
 	int posicao;
+	double tempo;
 
 
-	time_t t;
+	time_t now;
+	time_t data_f;
 	struct tm* tempo_atual;
-	time(&t);
-	tempo_atual = localtime(&t);
+	struct tm data_adm = {0,0,0};
 
-	//cout << asctime(tempo_atual) << endl;
-	cout << "Dia do mes: " << tempo_atual->tm_mday << endl;
+	time(&now);
+	tempo_atual = localtime(&now);
+	tempo_atual -> tm_mon = tempo_atual->tm_mon + 1;
+	tempo_atual -> tm_year = tempo_atual -> tm_year + 1900;
+
 
 
 
@@ -233,17 +237,33 @@ void periodo_experiencia(vector<empresa> &lista){
 		}
 		else{
 			for(auto it = lista[posicao].getListColab().begin(); it != lista[posicao].getListColab().end(); it++){
+				
+				if((int)lista[posicao].getListColab().size() == 0 ){
+					break;
+				}else{
+					data_adm.tm_mday = (*it).getAdmissao()[0];
+					cout << "empregado = " << data_adm.tm_mday << endl;
+					cout << "atual = " << tempo_atual->tm_mday << endl;
+					data_adm.tm_mon = ((*it).getAdmissao()[1]);
+					cout << "empregado = " << data_adm.tm_mon << endl;
+					cout << "atual = " << tempo_atual->tm_mon << endl;
+					data_adm.tm_year = ((*it).getAdmissao()[2]);
+					cout << "empregado = " << data_adm.tm_year << endl;
+					cout << "atual = " << tempo_atual->tm_year << endl;
+					data_f = mktime(&data_adm);
+					now = mktime(tempo_atual);
 
+
+					tempo = difftime(now,data_f);
+					cout << tempo << endl;
+					tempo =(int)(tempo/86400);
+					cout << tempo << endl;
+				}
 				//Comparar o dia de contração dos funcionários com o dia atual
 				
-			
-
-
-
-
 			}
 
-}
+		}
 
-}
+	}
 }
