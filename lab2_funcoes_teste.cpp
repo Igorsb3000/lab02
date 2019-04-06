@@ -193,3 +193,57 @@ void listarFunc(vector<empresa> &lista){
 		cout << lista[posicao];
 	}
 }
+
+void periodo_experiencia(vector<empresa> &lista){
+	int cnpj;
+	char existe_empresa = 'n';
+	int posicao;
+
+
+	time_t t;
+	struct tm* tempo_atual;
+	time(&t);
+	tempo_atual = localtime(&t);
+
+	//cout << asctime(tempo_atual) << endl;
+	cout << "Dia do mes: " << tempo_atual->tm_mday << endl;
+
+
+
+	cout << "Digite o CNPJ da empresa: ";
+	cin >> cnpj;
+	cout << endl;
+
+	//verifica se a empresa existe.
+	for(int i = 0; i < (int)lista.size(); i ++){
+		if(lista[i].getCnpj() == cnpj){
+			cout << "Empresa encontrada!!" << endl;
+			existe_empresa = 's';
+			posicao = i;
+			break;
+		}
+	}
+	if(existe_empresa != 's'){
+		cout << "Empresa nao encontrada!!Tente novamente." << endl;
+	}
+
+	else{
+		if((int)lista[posicao].getListColab().size() == 0){
+			cout << "Empresa nao possui funcionarios cadastrados!" << endl;
+		}
+		else{
+			for(auto it = lista[posicao].getListColab().begin(); it != lista[posicao].getListColab().end(); it++){
+
+				//Comparar o dia de contração dos funcionários com o dia atual
+				
+			
+
+
+
+
+			}
+
+}
+
+}
+}
