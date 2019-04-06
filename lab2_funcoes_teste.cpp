@@ -33,6 +33,7 @@ void cadastrar_emp(vector<empresa> &lista){
 		}
 		
 	}while(sucesso!='s');
+	
 }
 
 void cadastrar_func(vector<empresa> &lista){
@@ -106,6 +107,7 @@ void cadastrar_func(vector<empresa> &lista){
 			lista[posicao].setColaborador(f);//teste precisa mudar.
 		}
 	}
+	
 }
 
 void aumento_salario(vector<empresa> &lista){
@@ -190,7 +192,7 @@ void aumento_salario(vector<empresa> &lista){
 
 
 				//ADICIONA-LO NOVAMENTE COM O SALARIO ATUALIZADO
-				funcionario f(cpf,nome,salario,admissao);
+				//funcionario f(cpf,nome,salario,admissao);
 				//lista[posicao].colaboradores = f;
 				//lista[posicao].setColaborador2(f);//teste precisa mudar.
 
@@ -208,4 +210,53 @@ void aumento_salario(vector<empresa> &lista){
 
 }
 
+
+float calcMedia(){
+	float media;
+	int n_f = funcionario::getContador_func();
+	int n_e = empresa::getContador_empre();
+
+	media  = (float)n_f/(float)n_e;
+	return media;
+}
+
+void testarContrato(vector<empresa> &lista, int data[3]){
+	int cnpj,posicao;
+	int meses,dias, anos, total_dias;
+	char existe_empresa = 'n';//faltou declarar as variaveis.
+	//char existe_funcionario;//criei essa existe_funcionario no lugar da existe pra n ficar confuso.
+	
+	cout << "Digite o CNPJ da empresa: ";
+	cin >> cnpj;
+	cout << endl;
+
+	//verifica se a empresa existe.
+	for(i = 0; i < (int)lista.size(); i ++){
+		if(lista[i].getCnpj() == cnpj){
+			cout << "Empresa encontrada!!" << endl;
+			existe_empresa = 's';
+			posicao = i;
+			break;
+		}
+	}
+	if(existe_empresa != 's'){
+		cout << "Empresa nao encontrada!!Tente novamente." << endl;
+	}
+	else{
+		if((int)lista[posicao].getListColab().size() == 0){
+			cout << "Empresa nao possui funcionarios cadastrados!" << endl;
+		}
+		else{
+			for(auto it = lista[posicao].getListColab().begin(); it != lista[posicao].getListColab().end(); it++){
+				dia = (*it).getAdmissao()[0];
+				mes =  (*it).getAdmissao()[1];
+				ano = (*it).getAdmissao()[2];
+				
+				if(data[0] >= dia){
+					dias = data[0] - dia;
+				}else{
+					dias = dia - data[0];
+				}
+	}
+}
 

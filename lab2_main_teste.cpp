@@ -4,9 +4,11 @@ int funcionario::contador_func = 0;
 int empresa::contador_empre = 0; 
 
 int main(){
+	int data_atual[3] = {05,04,2019};
 	vector<empresa>lista_empresas;
 	char continuar = 'n';
 	int opcao = 1;
+	float media;
 
 	do{
 		cout << "Deseja cadastrar uma empresa? (s/n)  ";
@@ -33,6 +35,9 @@ int main(){
 				break;
 			case 3:
 				aumento_salario(lista_empresas);
+				break;
+			case 4:
+				media = calcMedia();
 			default:
 				opcao = 0;
 				cout << "Programa finalizado!!" << endl;
@@ -45,5 +50,6 @@ int main(){
 
 	cout << "Quantidade de empresas: " << empresa::getContador_empre() << endl;
 	cout << "Quantidade de funcionarios: " << funcionario::getContador_func() << endl;
+	cout << "Media: " << media << endl;
 	return 0;
 }

@@ -54,6 +54,10 @@ funcionario::funcionario(int c, string n, double s, int *data){
 	contador_func++;
 }
 
+int funcionario::getContador_func(){
+	return contador_func;
+}
+
 //EMPRESA:
 
 empresa::empresa(){
@@ -121,12 +125,10 @@ ostream& operator << (ostream &out, empresa &e){
 	return out;
 }
 
-int funcionario::getContador_func(){
-	return contador_func;
-}
 int empresa::getContador_empre(){
 	return contador_empre;
 }
+
 
 
 /*istream& operator >> (istream &in, empresa &e){
