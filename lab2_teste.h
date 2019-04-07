@@ -26,7 +26,7 @@ class funcionario{
 		string getNome();
 		double getSalario();
 		int* getAdmissao();
-
+		//Memmbros estáticos
 		static int contador_func;
 		static int getContador_func();
 
@@ -49,8 +49,7 @@ class empresa{
 		list<funcionario> & getListColab();
 		//Métodos de sobrecarga 
 		friend ostream& operator << (ostream &out, empresa &e);
-		//Método para desalocar memoria
-
+		//Memmbros estáticos
 		static int contador_empre;
 		static int getContador_empre();
 		

@@ -70,14 +70,15 @@ void empresa::setColaborador(funcionario f){
 	this->colaboradores.push_back(f);
 }
 
+//e)
 ostream& operator << (ostream &out, empresa &e){
 	cout << endl;
 	cout << "***Empresa " << e.razao << "***" << endl;
-	out << "Razao: " << e.razao << endl << "CNPJ: " << e.cnpj << endl << endl;
+	out << "Razão: " << e.razao << endl << "CNPJ: " << e.cnpj << endl << endl;
 
-	out << "***Lista de Funcionarios***" << endl;
+	out << "***Lista de Funcionários***" << endl;
 	for (auto it = e.colaboradores.begin(); it != e.colaboradores.end(); it++){
-		 out << "Nome: " << (*it).getNome() << endl << "CPF: " << (*it).getCpf() << endl << "Salario: R$ " << (*it).getSalario() << endl << "Admissao: " << (*it).getAdmissao()[0] << 
+		 out << "Nome: " << (*it).getNome() << endl << "CPF: " << (*it).getCpf() << endl << "Salário: R$ " << (*it).getSalario() << endl << "Admissão: " << (*it).getAdmissao()[0] << 
 	"/" << (*it).getAdmissao()[1] <<  "/" << (*it).getAdmissao()[2]  <<  endl << endl;;
 	}
 	

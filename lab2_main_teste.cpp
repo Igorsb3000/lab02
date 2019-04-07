@@ -20,8 +20,7 @@ int main(){
 	}while(continuar!='n');
 
 	while(opcao != 0){
-		cout << endl << "Qual operacao deseja executar: "<< endl << "0 - Sair" << endl << "1 - Cadastrar Empresa" << endl << "2 - Cadastrar Funcionario" << endl << "3 - Aumento de salário" << endl << "4 - Verificar a media de funcionarios" << endl << "5 - Listar os funcionarios" << endl << "6 - Funcionarios em periodo de experiencia" << endl;
-		cin.ignore();
+		cout << endl << "*** MENU INICIAL*** "<< endl << "0 - Sair" << endl << "1 - Cadastrar Empresa" << endl << "2 - Cadastrar Funcionario" << endl << "3 - Aumento de Salário" << endl << "4 - Verificar a Média de Funcionários" << endl << "5 - Listar os Funcionários" << endl << "6 - Funcionários em Período de Experiência" << endl;
 		cin >> opcao;
 		
 		switch (opcao){
@@ -36,7 +35,9 @@ int main(){
 				break;
 			case 4:
 				media = calcMedia();
-				cout << "Media: " << media << endl;
+				cout << "Nº de Empresas: " << empresa::getContador_empre() << endl;
+				cout << "Nº de Funcionários: " << funcionario::getContador_func() << endl;
+				cout << "Media de Funcionários por Empresas: " << media << endl;
 				break;
 			case 5:
 				listarFunc(lista_empresas);
