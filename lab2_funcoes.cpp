@@ -53,7 +53,7 @@ void cadastrar_func(vector<empresa> &lista){
 	cin >> cnpj;
 	cout << endl;
 
-	//verifica se a empresa existe.
+	//verifica se a empresa existe
 	for(i = 0; i < (int)lista.size(); i ++){
 		if(lista[i].getCnpj() == cnpj){
 			cout << "Empresa encontrada!!" << endl;
@@ -63,7 +63,7 @@ void cadastrar_func(vector<empresa> &lista){
 		}
 	}
 	if(existe_empresa != 's'){
-		cout << "Empresa nao encontrada!!Tente novamente." << endl;
+		cout << "*Empresa nao encontrada!!Tente novamente.*" << endl;
 	}
 	else{
 		existe = 'n';
@@ -138,7 +138,6 @@ void aumento_salario(vector<empresa> &lista){
 		cin >> aumento;
 		cout << endl;
 		
-
 		for(auto it = lista[posicao].getListColab().begin(); it != lista[posicao].getListColab().end(); it++){
 			if((int)lista[posicao].getListColab().size() == 0){
 				cout << "*Nao existem funcionarios cadastrados na empresa!!*" << endl;
@@ -147,7 +146,7 @@ void aumento_salario(vector<empresa> &lista){
 			else
 			{
 
-				a_salario = (*it).getSalario(); // lista[posicao].getSalario();
+				a_salario = (*it).getSalario();
 				n_salario =  a_salario + (aumento * a_salario)/100;
 
 
@@ -191,7 +190,7 @@ void listarFunc(vector<empresa> &lista){
 		}
 	}
 	if(existe_empresa != 's'){
-		cout << "Empresa nao encontrada!!Tente novamente." << endl;
+		cout << "*Empresa nao encontrada!!Tente novamente.*" << endl;
 	}
 	else{
 		cout << lista[posicao];
@@ -250,9 +249,7 @@ void periodo_experiencia(vector<empresa> &lista){
 					data_f = mktime(&data_adm);
 
 					tempo = difftime(now,data_f);
-					//cout << " dif de tempo em segs: " << tempo << endl;
 					tempo =(int)(tempo/86400);
-					//cout <<"dif de tempo em dias: " << tempo << endl;
 					
 					if(tempo < 90){						
 						cout << "Nome: "<< (*it).getNome() << endl;

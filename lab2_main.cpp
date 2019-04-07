@@ -7,9 +7,10 @@ int empresa::contador_empre = 0;
 int main(){
 	vector<empresa>lista_empresas;
 	int opcao = 1;
-	float media = 0;
+	float media;
+	//MENU com todas as opções do programa
 	while(opcao != 0){
-		cout << endl << "*** MENU INICIAL*** "<< endl << "0 - Sair" << endl << "1 - Cadastrar Empresa" << endl << "2 - Cadastrar Funcionário" << endl << "3 - Aumento de Salário" << endl << "4 - Verificar a Média de Funcionários" << endl << "5 - Listar os Funcionários" << endl << "6 - Funcionários em Período de Experiência" << endl;
+		cout << endl << "*** MENU INICIAL*** "<< endl << "0 - Encerrar programa" << endl << "1 - Cadastrar Empresa" << endl << "2 - Cadastrar Funcionário" << endl << "3 - Aumentar Salário" << endl << "4 - Verificar a Média de Funcionários" << endl << "5 - Listar os Funcionários" << endl << "6 - Funcionários em Período de Experiência" << endl;
 		cin >> opcao;
 		
 		switch (opcao){
@@ -25,7 +26,7 @@ int main(){
 			case 4:
 				media = calcMedia();
 				if(media == -1){
-					cout << "Nao existem empresas cadastradas!!" << endl;
+					cout << "*Nao existem empresas cadastradas!!*" << endl;
 				}
 				else{
 					cout << "Nº de Empresas: " << empresa::getContador_empre() << endl;

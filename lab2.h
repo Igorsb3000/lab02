@@ -31,9 +31,8 @@ class funcionario{
 		//Memmbros estáticos
 		static int contador_func;
 		static int getContador_func();
-
-
 };
+
 //b)
 class empresa{
 	private:
@@ -54,11 +53,8 @@ class empresa{
 		//Memmbros estáticos
 		static int contador_empre;
 		static int getContador_empre();
-		
-		
 };
-
-
+//Funções implementadas no lab2_funcoes.cpp
 void cadastrar_emp(vector<empresa> &lista);
 void cadastrar_func(vector<empresa> &lista);
 void aumento_salario(vector<empresa> &lista);

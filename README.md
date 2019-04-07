@@ -9,8 +9,8 @@ Dupla: Igor Silva Bento e Hilton Thallyson Vieira Machado
 		3- Digite "./exe";
 		4- Se quiser apagar os arquivos objetos ".o", basta digitar no promt "rm -rf *.o";
 
+
 	-> Roteiro para os destacar as funcionalidades dos intens(a-h):
-	
 		a) Classe funcionario:
 			A "classe funcionario" possui as informações da cada objeto funcionario criado pelo usuário. Ela possui todos os atributos privados, sendo eles: cpf do tipo long double, cnome do tipo string, salario do tipo double e admissao do tipo vetor de inteiros. Além disso, os métodos setteres e getters dos atributos, os construtores padrão e parametrizado, um membro estático e seu método getter.
 
@@ -36,7 +36,6 @@ Dupla: Igor Silva Bento e Hilton Thallyson Vieira Machado
 			2- No MENU INICIAL, digite '5' para listar os dados da empresa e seus funcionários;
 			3- Digite o CNPJ da empresa desejada, então será exibidos as informações da empresa e todos os seus funcionários;
 
-
 		f) Aumentar X% o salário de todos os funcionários de uma empresa:
 			1- Criada uma empresa com pelo menos um funcionário;
 			2- No MENU INICIAL, digite '3' para aumentar o salário;
@@ -44,7 +43,6 @@ Dupla: Igor Silva Bento e Hilton Thallyson Vieira Machado
 			4- Digite o valor em porcentagem(%) do aumento de salário;
 			5- No MENU INICIAL, digite '5' para exibir os dados dos funcionários (com salários atualizados);
 
-			
 		g) Listar os dados dos funcionários em período de experiência(menos de 90 dias de admissão):
 			1- Criada um empresa com pelo menos um funcionário;
 			2- No MENU INICIAL, digite '6' para exibir os funcionários em periodo de experiência;
@@ -53,8 +51,11 @@ Dupla: Igor Silva Bento e Hilton Thallyson Vieira Machado
 
 
 	-> Limitações do Programa:
-		Não foram identificadas nenhuma limitação.
+		Não foi identificada nenhuma limitação.
+
+
 	-> Dificuldades na implementação do programa:
 		Tivemos dificuldades em diversos pontos da criação do programa. Inicialmente, houve a necessidade de entender o uso da list e vector e do iterator, que acabou consumindo bastante tempo, pois em alguns casos estavam ocorrendo acessos indevidos à memória.
 		Outra dificuldade foi a função de aumento de salário. Inicialmente, as modificações não estavam sendo mantidas após a saída da função. Para solucionar esse e o problema anterior, retornamos por referência a lista de funcionários.
-		Por ultimo, durante a função que calcula os dias corridos desde a admissão até a data atual houveram problemas com a saída, pois os resultados estavam com pequena divergência do valor esperado. Após um estudo mais aprofundado do uso das funções ta biblioteca ctime(time.h) e vários testes, conseguiu-se resolver o problema.
+		Por ultimo, durante a função que calcula os dias corridos desde a admissão até a data atual houveram problemas com a saída, pois os resultados estavam com pequenas divergências do valor esperado. Após um estudo mais aprofundado do uso das funções da biblioteca ctime(time.h) e vários testes, conseguimos resolver o problema.
+
