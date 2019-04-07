@@ -6,20 +6,8 @@ int empresa::contador_empre = 0;
 
 int main(){
 	vector<empresa>lista_empresas;
-	//char continuar = 'n';
 	int opcao = 1;
-	float media;
-	//O cadastro da empresa é importante que seja feito primeiro
-	/*do{
-		cout << "Deseja cadastrar uma empresa? (s/n)  ";
-		cin >> continuar;
-		cout << endl;
-
-		if (continuar!='n'){
-			cadastrar_emp(lista_empresas);
-		}
-	}while(continuar!='n');*/
-
+	float media = 0;
 	while(opcao != 0){
 		cout << endl << "*** MENU INICIAL*** "<< endl << "0 - Sair" << endl << "1 - Cadastrar Empresa" << endl << "2 - Cadastrar Funcionário" << endl << "3 - Aumento de Salário" << endl << "4 - Verificar a Média de Funcionários" << endl << "5 - Listar os Funcionários" << endl << "6 - Funcionários em Período de Experiência" << endl;
 		cin >> opcao;
@@ -57,11 +45,5 @@ int main(){
 		}
 
 	}
-	for(int i=0; i < (int)lista_empresas.size(); i++){
-		cout << lista_empresas[i];
-	}
-
-	cout << "Quantidade de empresas: " << empresa::getContador_empre() << endl;
-	cout << "Quantidade de funcionarios: " << funcionario::getContador_func() << endl;
 	return 0;
 }

@@ -18,13 +18,6 @@ Dupla: Igor Silva Bento e Hilton Thallyson
 			A "classe empresa" possui as informações da cada objeto empresa criada pelo usuário.Ela possui todos os atributos privados, sendo eles: razao do tipo string, cnpj do tipo int e colaboradores do tipo list de objetos da classe funcionario. Além disso, os métodos setteres e getters de cada atributo, os construtores padrão e parametrizado, o método friend de sobrecarga de operador, um membro estático e seu método getter.  
 
 		c) Criar uma empresa:
-			1- Depois de executar o programa, digite 's' para criar uma empresa;
-			2- Digite o "CNPJ" da empresa;
-			3- Digite a "razão" da empresa;
-			4- Pronto, empresa criada com sucesso;
-
-			OUTRA MANEIRA:
-			
 			1- No MENU INICIAL, digite o "1" para criar uma empresa;
 			2- Digite o "CNPJ" da empresa;
 			3- Digite a "razão" da empresa;
@@ -60,6 +53,8 @@ Dupla: Igor Silva Bento e Hilton Thallyson
 
 
 	-> Limitações do Programa:
-
-
+		Não foram identificadas nenhuma limitação.
 	-> Dificuldades na implementação do programa:
+		Tivemos dificuldades em diversos pontos da criação do programa. Inicialmente, houve a necessidade de entender o uso da list e vector e do iterator, que acabou consumindo bastante tempo, pois em alguns casos estavam ocorrendo acessos indevidos à memória.
+		Outra dificuldade foi a função de aumento de salário. Inicialmente, as modificações não estavam sendo mantidas após a saída da função. Para solucionar esse e o problema anterior, retornamos por referência a lista de funcionários.
+		Por ultimo, durante a função que calcula os dias corridos desde a admissão até a data atual houveram problemas com a saída, pois os resultados estavam com pequena divergência do valor esperado. Após um estudo mais aprofundado do uso das funções ta biblioteca ctime(time.h) e vários testes, conseguiu-se resolver o problema.
