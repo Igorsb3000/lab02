@@ -11,27 +11,29 @@ void cadastrar_emp(vector<empresa> &lista){
 		cout << endl;
 		if((int)lista.size() == 0){
 			cout << "Digite a razao social da empresa: ";
-			cin >> razao;
-			cout << endl;
+			cin.ignore();
+			getline(cin, razao);
 			empresa A(razao,cnpj);
 			lista.push_back(A);
 		}else{
 			for(int i=0; i < (int)lista.size(); i++){
 				if(cnpj == lista[i].getCnpj()){
-					cout << "CNPJ ja existe!! Tente novamente. " << endl;
+					cout << "*CNPJ ja existe!! Tente novamente*" << endl;
 					sucesso = 'n';
 					break;
 				}
 			}
 			if (sucesso == 's'){
 				cout << "Digite a razao social da empresa: ";
-				cin >> razao;
-				cout << endl;
+				cin.ignore();
+				getline(cin, razao);
 				empresa A(razao,cnpj);
 				lista.push_back(A);
 			}
+			
 		}
-		
+
+		cout << endl;
 	}while(sucesso!='s');
 	
 }
@@ -73,11 +75,9 @@ void cadastrar_func(vector<empresa> &lista){
 				//cout << "chegou 2" << endl;
 				if((int)lista[i].getListColab().size() == 0){
 					break; 
-					//Primeiro cadastrado
 				}
 				else if((*it).getCpf() == cpf){
-					existe = 's';//flag
-					//Já existe
+					existe = 's';
 					break;
 				}
 				else{
@@ -87,7 +87,7 @@ void cadastrar_func(vector<empresa> &lista){
 			}
 			
 			if(existe == 's'){
-				cout << "CPF ja cadastrado na empresa " << lista[i].getRazao() << "!! Tente novamente." << endl << endl;
+				cout << "*CPF ja cadastrado na empresa " << lista[i].getRazao() << "!! Tente novamente*" << endl << endl;
 				break;
 			}
 		}
@@ -95,12 +95,11 @@ void cadastrar_func(vector<empresa> &lista){
 		if(existe != 's'){
 			
 			cout << "Digite o nome do funcionario: ";
-			cin >> nome;
-			cout << endl;
+			cin.ignore();
+			getline(cin, nome);
 			cout << "Digite o salario do funcionario: ";
 			cin >> salario;
-			cout << endl;
-			cout << "Digite a data de admissao(dia mes ano): ";
+			cout << "Digite a data de admissao(DIA 'espaço' MES 'espaço' ANO): ";
 			cin >> admissao[0] >> admissao[1] >> admissao[2];
 			funcionario f(cpf,nome,salario,admissao);
 			lista[posicao].setColaborador(f);
@@ -132,7 +131,7 @@ void aumento_salario(vector<empresa> &lista){
 		}
 	}
 	if(existe_empresa != 's'){
-		cout << "Empresa nao encontrada!!Tente novamente." << endl;
+		cout << "*Empresa nao encontrada!!Tente novamente*" << endl;
 	}
 	else{
 		cout << "Digite X% o aumento que dará aos funcionários: ";
@@ -142,7 +141,7 @@ void aumento_salario(vector<empresa> &lista){
 
 		for(auto it = lista[posicao].getListColab().begin(); it != lista[posicao].getListColab().end(); it++){
 			if((int)lista[posicao].getListColab().size() == 0){
-				cout << "Nao existem funcionarios cadastrados na empresa!!" << endl;
+				cout << "*Nao existem funcionarios cadastrados na empresa!!*" << endl;
 				break; 
 			}
 			else
@@ -197,7 +196,7 @@ void listarFunc(vector<empresa> &lista){
 void periodo_experiencia(vector<empresa> &lista){
 	int cnpj;
 	char existe_empresa = 'n';
-	int posicao;
+	int posicao, i;
 	double tempo;
 
 
@@ -228,12 +227,12 @@ void periodo_experiencia(vector<empresa> &lista){
 		}
 	}
 	if(existe_empresa != 's'){
-		cout << "Empresa nao encontrada!!Tente novamente." << endl;
+		cout << "*Empresa nao encontrada!!Tente novamente*" << endl;
 	}
 
 	else{
 		if((int)lista[posicao].getListColab().size() == 0){
-			cout << "Empresa nao possui funcionarios cadastrados!" << endl;
+			cout << "*Empresa nao possui funcionarios cadastrados!*" << endl;
 		}
 		else{
 			for(auto it = lista[posicao].getListColab().begin(); it != lista[posicao].getListColab().end(); it++){
@@ -246,18 +245,27 @@ void periodo_experiencia(vector<empresa> &lista){
 					data_adm.tm_year = ((*it).getAdmissao()[2] - 1900);
 					data_f = mktime(&data_adm);
 					
-					cout << "funcionario segundos: " << data_f << endl;
-					cout << "hoje segundos: " << now << endl;
+					//cout << "funcionario segundos: " << data_f << endl;
+					//cout << "hoje segundos: " << now << endl;
 
 
 					tempo = difftime(now,data_f);
-					cout << " dif de tempo em segs: " << tempo << endl;
+					//cout << " dif de tempo em segs: " << tempo << endl;
 					tempo =(int)(tempo/86400);
 					cout <<"dif de tempo em dias: " << tempo << endl;
+				
+
+					if(tempo <= 90){
+						//Falta fazer uma função que imprima somente os funcionarios em periodo de experiencia
+						cout << "Funcionários em Período de Experiência: " << endl;
+						i = posicao;
+						//cout << lista[posicao] << endl;
+					}
 				}
 				//Comparar o dia de contração dos funcionários com o dia atual
 				
 			}
+			cout << lista[i] << endl;
 
 		}
 
