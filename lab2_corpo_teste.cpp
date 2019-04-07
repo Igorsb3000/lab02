@@ -1,6 +1,6 @@
 #include "lab2_teste.h"
 
-//FUNCIONARIO:
+//Métodos da classe funcionario:
 void funcionario::setSalario(double s){
 	this->salario = s;
 }
@@ -24,6 +24,10 @@ funcionario::funcionario(){
 	cpf = 00000000000;
 	nome = "Desconhecido";
 	salario = 000.00;
+	admissao[0] = 00;
+	admissao[1] = 00;
+	admissao[2] = 0000;
+
 	contador_func++;
 }
 
@@ -41,7 +45,8 @@ int funcionario::getContador_func(){
 	return contador_func;
 }
 
-//EMPRESA:
+
+//Métodos da classe empresa:
 empresa::empresa(){
 	cnpj = 0;
 	razao = "-";

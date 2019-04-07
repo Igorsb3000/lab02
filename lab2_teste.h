@@ -1,3 +1,6 @@
+#ifndef _LAB2_H_
+#define _LAB2_H_
+
 #include <iostream>
 #include <string>
 #include <cstring>
@@ -6,7 +9,6 @@
 #include <stdlib.h>
 
 using namespace std;
-
 
 //a)
 class funcionario{
@@ -63,3 +65,5 @@ void aumento_salario(vector<empresa> &lista);
 float calcMedia();
 void periodo_experiencia(vector<empresa> &lista);
 void listarFunc(vector<empresa> &lista);
+
+#endif

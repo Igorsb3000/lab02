@@ -1,6 +1,6 @@
 #include "lab2_teste.h"
 
-//c)
+//c) Função para cadastro das empresas
 void cadastrar_emp(vector<empresa> &lista){
 	char sucesso;
 	int cnpj;
@@ -38,7 +38,7 @@ void cadastrar_emp(vector<empresa> &lista){
 	}while(sucesso!='s');
 	
 }
-//d)
+//d) Função para cadastro dos funcionários
 void cadastrar_func(vector<empresa> &lista){
 	int cpf;
 	int cnpj;
@@ -107,7 +107,7 @@ void cadastrar_func(vector<empresa> &lista){
 	}
 	
 }
-//f)
+//f) Função para aumento de salário de todos os funcionários de uma empresa
 void aumento_salario(vector<empresa> &lista){
 	float aumento;//aumento pode ser um decimal.
 	int i, posicao;
@@ -159,17 +159,16 @@ void aumento_salario(vector<empresa> &lista){
 
 }
 
-//h)
+//h) Função para calcular a média de funcionários por empresa
 float calcMedia(){
 	int media;
 	int n_f = funcionario::getContador_func();
 	int n_e = empresa::getContador_empre();
-
 	media  = n_f/n_e;
 	return media;
 }
 
-//e)
+//e) Função para listar os daados de uma empresa e seus funcionários (sobrecarregando o operador de inserção << )
 void listarFunc(vector<empresa> &lista){
 	int i, posicao, cnpj;
 	char existe_empresa = 'n';
@@ -193,7 +192,7 @@ void listarFunc(vector<empresa> &lista){
 		cout << lista[posicao];
 	}
 }
-//g)
+//g) Função para listar os funcionários que estão em periodo de experiencia(90 dias de contratação) de determinada empresa
 void periodo_experiencia(vector<empresa> &lista){
 	int cnpj;
 	char existe_empresa = 'n';
