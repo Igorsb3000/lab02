@@ -1,6 +1,6 @@
 Laboratório 02 - Linguagem de Programação 1
 
-Dupla: Igor Silva Bento e Hilton Thallyson
+Dupla: Igor Silva Bento e Hilton Thallyson Vieira Machado
 
 **Questão 01**: 
 	-> Como compilar e executar o programa: 
