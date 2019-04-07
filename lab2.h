@@ -1,14 +1,14 @@
+#ifndef _LAB2_H_
+#define _LAB2_H_
+
 #include <iostream>
 #include <string>
 #include <cstring>
 #include <list>
 #include <vector>
-//#include <algorithm>
-
-
+#include <stdlib.h>
 
 using namespace std;
-
 
 //a)
 class funcionario{
@@ -16,21 +16,22 @@ class funcionario{
 		long double cpf;
 		string nome;
 		double salario;
-		int *admissao;
+		int admissao[3];
 	public:
 		//Costrutores
 		funcionario();
-		funcionario(long double cpf, string nome, double salario, int *admissao);
+		funcionario(int cpf, string nome, double salario, int *admissao);
 		//Métodos setters
-		void setCpf(long double cpf);
-		void setNome(string n);
 		void setSalario(double s);
-		void setAdmissao(int admissao[]);
 		//Métodos getters
-		long double getCpf();
+		int getCpf();
 		string getNome();
 		double getSalario();
 		int* getAdmissao();
+		//Memmbros estáticos
+		static int contador_func;
+		static int getContador_func();
+
 
 };
 //b)
@@ -44,17 +45,25 @@ class empresa{
 		empresa();
 		empresa(string	r, int c);
 		//Métodos setters
-		void setRazao(string);
-		void setCnpj(int);
 		void setColaborador(funcionario);
-		//Métodos getters
 		string getRazao();
 		int getCnpj();
-		funcionario* getColaborador(string);
+		list<funcionario> & getListColab();
 		//Métodos de sobrecarga 
 		friend ostream& operator << (ostream &out, empresa &e);
-		friend istream& operator >> (istream &in, empresa &e);
-		//Método para desalocar memoria
+		//Memmbros estáticos
+		static int contador_empre;
+		static int getContador_empre();
 		
 		
 };
+
+
+void cadastrar_emp(vector<empresa> &lista);
+void cadastrar_func(vector<empresa> &lista);
+void aumento_salario(vector<empresa> &lista);
+float calcMedia();
+void periodo_experiencia(vector<empresa> &lista);
+void listarFunc(vector<empresa> &lista);
+
+#endif

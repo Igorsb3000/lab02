@@ -1,110 +1,67 @@
 #include "lab2.h"
 
+//Inicializando os membross estáticos
+int funcionario::contador_func = 0;
+int empresa::contador_empre = 0; 
+
 int main(){
-	//funcionario R;
-	
-	//c)
-	string razao;
-	int cnpj;
+	vector<empresa>lista_empresas;
+	//char continuar = 'n';
+	int opcao = 1;
+	float media;
+	//O cadastro da empresa é importante que seja feito primeiro
+	/*do{
+		cout << "Deseja cadastrar uma empresa? (s/n)  ";
+		cin >> continuar;
+		cout << endl;
 
-
-
-	//Vetor de empresas
-	vector<empresa>Empresas;
-	
-	char resposta;
-	int numero_empresas;
-	int i=0;
-
-	
-	do{
-		cout << "Deseja criar uma empresa ? s/n " << endl;
-		cin >> resposta;
-
-		if(resposta != 'n'){
-			cout << "Digite a razao social da empresa:" << endl;
-			cin >> razao; 
-			
-			cout << "Digite o CNPJ da empresa:" << endl;
-			cin >>  cnpj;
-
-			Empresas.push_back(empresa(razao, cnpj));
-
-			i++;
-			cout << "Empresa cadastrada!" << endl;
+		if (continuar!='n'){
+			cadastrar_emp(lista_empresas);
 		}
+	}while(continuar!='n');*/
 
+	while(opcao != 0){
+		cout << endl << "*** MENU INICIAL*** "<< endl << "0 - Sair" << endl << "1 - Cadastrar Empresa" << endl << "2 - Cadastrar Funcionário" << endl << "3 - Aumento de Salário" << endl << "4 - Verificar a Média de Funcionários" << endl << "5 - Listar os Funcionários" << endl << "6 - Funcionários em Período de Experiência" << endl;
+		cin >> opcao;
 		
-		
-	}while(resposta != 'n');
-
-
-	//Empresas.push_back(empresa("sadia", 12344));
-	cout << endl << endl;
-
-
-	long double cpf;
-	vector<long double>lista_CPF;
-	int ok = 1;
-	int contador = 0;
-	//d)
-	do{
-		cout << "Deseja adicionar um novo funcinário ? s/n" << endl;
-		//cin.ignore();
-		cin >> resposta;
-
-		if(resposta != 'n'){
-			cout << "Digite o CPF para verificação: " << endl;
-			cin >> cpf;
-			if(contador == 0){
-				lista_CPF.push_back(cpf);
-				contador++;
-			}else{
-				for(int i=0; i< (int)lista_CPF.size(); i++){
-					if(cpf != lista_CPF[i]){
-						lista_CPF.push_back(cpf);
-						cout << lista_CPF[i] << endl;
-						cout << "CPF válido!" << endl;
-						ok = 1;
-						break;
-
-					}else{
-						cout << "CPF inválido, funcionário já cadastrado!" << endl;
-						ok = 0;
-						break;
-						
-					}
+		switch (opcao){
+			case 1:
+				cadastrar_emp(lista_empresas);
+				break;
+			case 2:
+				cadastrar_func(lista_empresas);
+				break;
+			case 3:
+				aumento_salario(lista_empresas);
+				break;
+			case 4:
+				media = calcMedia();
+				if(media == -1){
+					cout << "Nao existem empresas cadastradas!!" << endl;
 				}
-			}
-			
-			if(ok == 1){
-				cin >> Empresas[i-1];
-			}
-			
+				else{
+					cout << "Nº de Empresas: " << empresa::getContador_empre() << endl;
+					cout << "Nº de Funcionários: " << funcionario::getContador_func() << endl;
+					cout << "Média de Funcionários por Empresas: " << media << endl;
+				}				
+				break;
+			case 5:
+				listarFunc(lista_empresas);
+				break;
+			case 6:
+				periodo_experiencia(lista_empresas);
+				break;
+			default:
+				opcao = 0;
+				cout << "Programa finalizado!!" << endl;
 		}
 
-	}while(resposta != 'n');
+	}
+	for(int i=0; i < (int)lista_empresas.size(); i++){
+		cout << lista_empresas[i];
+	}
 
-	
-
-	/*cout << "Digite o nome do funcionario que deseja pesquisar:";
-	cin >> nome_main;
-
-	if(A.getColaborador(nome_main) != nullptr){
-		cout << "Empresa: " << A.getRazao() << endl;
-		cout <<  "Funcionario:" << endl << A.getColaborador(nome_main)->getNome() << endl;
-		cout << "Salario: " << A.getColaborador(nome_main)->getSalario() << endl;
-		cout << "Data de admissao:" << A.getColaborador(nome_main)->getAdmissao()[0] << "/" << A.getColaborador(nome_main)->getAdmissao()[1] << "/" << A.getColaborador(nome_main)->getAdmissao()[2] << endl;
-	} */
-	
-
-	//cout << A; //TESTE
-
-	//Imprimindo todas as empresas e seus funcionários
-	for(int i=0; i< (int)Empresas.size(); i++){
-		cout << Empresas[i] << endl;
-
-	} 
-	
+	cout << "Quantidade de empresas: " << empresa::getContador_empre() << endl;
+	cout << "Quantidade de funcionarios: " << funcionario::getContador_func() << endl;
 	return 0;
 }
